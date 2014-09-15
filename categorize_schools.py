@@ -84,7 +84,9 @@ if __name__ == '__main__':
     op_all = open(op_directory + 'schools.csv', 'a')
     writer2 = csv.writer(op_all)
 
-    # Loop through each input file
+    # First input flag, Used to determine if a header has to be added to a merged output 
+    first_input = True
+    # Loop through each input file 
     for arg in sys.argv[1:]:
         #TODO: Add header row
         sys.stdout.write("\033[92m %s\033[0m\n  * Cleaning ...\n " %arg)
@@ -135,6 +137,11 @@ if __name__ == '__main__':
                     if not sorted_row.get('school_type'):
                         sorted_row['school_type'] = ''
             header_row = sorted_row.keys()
+            # Add header to a merged output
+            if first_input:
+                writer2.writerow(header_row)
+                first_input = False
+            # Add header to individual output file
             if first_row:
                 writer.writerow(header_row)
                 first_row = False
