@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # usage: Run `python categorize_schools.py <path/to/input-1.csv> ... <path/to/input-n.csv>` via command line
+# Warning: If input files have different columns the auto-merged output ('Schools/school.csv') can be disorganized
 
 import sys
 import re
