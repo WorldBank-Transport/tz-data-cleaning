@@ -1,0 +1,7 @@
+code
+name
+district
+region
+school_type
+longitude
+latitude
